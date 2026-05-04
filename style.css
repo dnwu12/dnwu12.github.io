@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Pretendard:wght@300;700&display=swap');
+
+:root {
+    --fire: #ff4b2b;
+    --ice: #00d2ff;
+    --bg: #050505;
+    --glass: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    background-color: var(--bg);
+    color: #fff;
+    font-family: 'Pretendard', sans-serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+    opacity: 0; /* 페이지 전환 애니메이션용 */
+    transition: opacity 0.5s ease;
+}
+
+body.loaded { opacity: 1; }
+
+/* --- CRT & Noise --- */
+.crt::before {
+    content: " "; display: block; position: fixed; top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+    z-index: 9999; pointer-events: none; background-size: 100% 3px, 3px 100%;
+}
+
+/* --- Shared Navigation --- */
+.nav-bar {
+    position: fixed; top: 0; width: 100%; z-index: 1000;
+    background: rgba(5, 5, 5, 0.8); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border); padding: 15px 50px;
+    display: flex; justify-content: space-between; align-items: center;
+}
+.nav-logo { font-family: 'Orbitron', sans-serif; font-weight: 900; color: var(--ice); text-decoration: none; font-size: 1.2rem; }
+.nav-links { display: flex; list-style: none; gap: 30px; }
+.nav-links a { text-decoration: none; color: #888; font-size: 0.9rem; font-weight: 700; transition: 0.3s; }
+.nav-links a:hover, .nav-links a.active { color: #fff; text-shadow: 0 0 10px #fff; }
+
+/* --- Common Components --- */
+.container { max-width: 1000px; margin: 120px auto; padding: 0 20px; }
+.glass-card {
+    background: var(--glass); border: 1px solid var(--border);
+    border-radius: 20px; padding: 40px; backdrop-filter: blur(10px);
+}
+.section-title { font-family: 'Orbitron', sans-serif; font-size: 2rem; margin-bottom: 40px; border-left: 4px solid var(--fire); padding-left: 20px; }
+
+/* --- ADOFAI Orbit Animation (Used in Index) --- */
+.orbit-wrap { position: relative; width: 300px; height: 300px; }
+.planet { position: absolute; width: 40px; height: 40px; border-radius: 50%; top: 50%; left: 50%; margin: -20px; }
+.fire-p { background: var(--fire); box-shadow: 0 0 30px var(--fire); animation: orbit 3s infinite linear; }
+.ice-p { background: var(--ice); box-shadow: 0 0 30px var(--ice); animation: orbit 3s infinite linear reverse; animation-delay: -1.5s; }
+
+@keyframes orbit {
+    from { transform: rotate(0deg) translateX(130px) rotate(0deg); }
+    to { transform: rotate(360deg) translateX(130px) rotate(-360deg); }
+}
