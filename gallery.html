@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>DNWU | GALLERY</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="crt">
+    <nav class="nav-bar">
+        <a href="index.html" class="nav-logo">DNWU.LOGO</a>
+        <ul class="nav-links">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="projects.html">PROJECTS</a></li>
+            <li><a href="gallery.html" class="active">GALLERY</a></li>
+            <li><a href="blog.html">BLOG</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <h2 class="section-title">GALLERY</h2>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
+            <div class="glass-card" style="padding: 0; overflow: hidden; height: 250px;">
+                <img src="https://picsum.photos/400/400?random=1" style="width:100%; height:100%; object-fit:cover; transition:0.5s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+            <!-- 반복해서 추가 가능 -->
+            <div class="glass-card" style="padding: 0; overflow: hidden; height: 250px;">
+                <img src="https://picsum.photos/400/400?random=2" style="width:100%; height:100%; object-fit:cover; transition:0.5s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+            <div class="glass-card" style="padding: 0; overflow: hidden; height: 250px;">
+                <img src="https://picsum.photos/400/400?random=3" style="width:100%; height:100%; object-fit:cover; transition:0.5s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
