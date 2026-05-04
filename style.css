@@ -58,3 +58,39 @@ body.loaded { opacity: 1; }
     from { transform: rotate(0deg) translateX(130px) rotate(0deg); }
     to { transform: rotate(360deg) translateX(130px) rotate(-360deg); }
 }
+
+/* --- Blog Specific Styles --- */
+.blog-grid { display: grid; gap: 20px; }
+.blog-card { 
+    display: flex; flex-direction: column; gap: 15px; 
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.blog-card:hover { transform: scale(1.02); border-color: var(--ice); }
+.blog-meta { display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: bold; }
+.post-title { font-family: 'Orbitron'; font-size: 1.4rem; color: #fff; }
+.post-excerpt { color: #aaa; font-size: 0.95rem; }
+.post-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; font-size: 0.8rem; color: #555; }
+.read-more { color: var(--fire); text-decoration: none; font-weight: bold; }
+
+/* --- Tag Buttons --- */
+.tag-btn {
+    padding: 5px 15px; border-radius: 20px; border: 1px solid var(--border);
+    font-size: 0.8rem; cursor: pointer; transition: 0.3s; color: #666;
+}
+.tag-btn:hover, .tag-btn.active { border-color: var(--ice); color: #fff; background: rgba(0, 210, 255, 0.1); }
+
+/* --- About Page Timeline --- */
+.timeline-item {
+    border-left: 2px solid var(--border); padding-left: 20px; position: relative; margin-bottom: 30px;
+}
+.timeline-item::before {
+    content: ""; position: absolute; left: -7px; top: 0; width: 12px; height: 12px;
+    background: var(--fire); border-radius: 50%; box-shadow: 0 0 10px var(--fire);
+}
+
+/* --- Floating Animation --- */
+@keyframes float-y {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+.float-ani { animation: float-y 2s infinite alternate ease-in-out; }
